@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    background: #262D33;
+    justify-content: space-between;
+}
+
+.unAuth {
+    padding: 0 420px 0 220px;
+}
+
+.auth{
+    justify-content: center;
+}
+
+.logo {
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+
+}
+
+.logo > .logoBeer {
+    margin-left: 10px;
+    display: inline-block;
+    color: black;
+    background: #FFA31A;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+.button {
+    color: #DFE8F2;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 139.891% */
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #566473;
+    background: transparent;
+}
+
+.nav{
+    display: flex;
+    height: 100%;
+    margin: 0 50px;
+}
+
+.link {
+    padding: 0 32px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+    outline: none;
+    border: none;
+
+    color: #DFE8F2;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 165.517% */
+    overflow: hidden;
+}
+
+.active::before  {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: #0095B3;
+    border-radius: 8px;
+}
+
+.buttonClear{
+    background: transparent;
+    border: none;
+}

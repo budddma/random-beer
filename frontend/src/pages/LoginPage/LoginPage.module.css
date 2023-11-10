@@ -1,0 +1,57 @@
+.container {
+    min-height: 100vh;
+    background: url("../../assets/welcomeBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-grow: 1;
+    height: 100%;
+    width: 500px;
+    margin: 8px auto;
+    overflow: hidden;
+}
+
+.mainAccount {
+	margin-top: 100px;
+	padding: 24px; 
+    display: flex;
+    flex-direction: column;
+	background: #262D33;
+    gap: 10px;
+	box-shadow: 0px 2px 8px 0px rgba(15, 20, 26, 0.30);
+	border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.buttonBottom {
+    background: #0095B3;
+    padding: 11px 14px;
+    color: #DFE8F2;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 179.859% */
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+	border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.blockHeading {
+    color: #DFE8F2;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 131.282% */
+}
