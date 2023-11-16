@@ -5,10 +5,10 @@
 [Ссылка на проект в figma.](https://www.figma.com/file/jtcbK2gXc1bOaRGcknkFw9/Random-Beer?type=design&t=wyYirgTXEd8P8aLl-6)
 
 #### Скриншоты
-<img src="screenshots/WelcomePage.png" width="300" hspace="20" vspace="20" alt="WelcomePage">
-<img src="screenshots/LoginPage.png" width="300" hspace="20" vspace="20" alt="LoginPage">
-<img src="screenshots/MeetingsPage.png" width="300" hspace="20" vspace="20" alt="MeetingsPage">
-<img src="screenshots/ProfilePage.png" width="300" hspace="20" vspace="20" alt="ProfilePage">
+<img src="screenshots/WelcomePage.png" width="500" hspace="20" vspace="20" alt="WelcomePage">
+<img src="screenshots/LoginPage.png" width="500" hspace="20" vspace="20" alt="LoginPage">
+<img src="screenshots/MeetingsPage.png" width="500" hspace="20" vspace="20" alt="MeetingsPage">
+<img src="screenshots/ProfilePage.png" width="500" hspace="20" vspace="20" alt="ProfilePage">
 
 #### Инструкция по запуску фронтенда
 1. `cd frontend`
