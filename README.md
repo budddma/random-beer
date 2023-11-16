@@ -5,8 +5,11 @@
 [Ссылка на проект в figma.](https://www.figma.com/file/jtcbK2gXc1bOaRGcknkFw9/Random-Beer?type=design&t=wyYirgTXEd8P8aLl-6)
 
 #### Скриншоты
-![WelcomePage](screenshots/WelcomePage.png) ![LoginPage](screenshots/LoginPage.png)
-![MeetingsPage](screenshots/MeetingsPage.png) ![ProfilePage](screenshots/ProfilePage.png)
+<img src="screenshots/WelcomePage.png" width="200" height="200" alt="WelcomePage">
+
+![LoginPage](screenshots/LoginPage.png)
+![MeetingsPage](screenshots/MeetingsPage.png) 
+![ProfilePage](screenshots/ProfilePage.png)
 
 
 #### Инструкция по запуску фронтенда
