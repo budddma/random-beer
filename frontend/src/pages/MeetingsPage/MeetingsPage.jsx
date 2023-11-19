@@ -5,18 +5,6 @@ import Footer from "../../components/Footer/Footer";
 import { useEffect, useState } from 'react';
 import Input from "../../components/Input/Input";
 
-const tags1 = [
-    "мужчину",
-    "женщину",
-    "собеседника",
-    "друга",
-    "подругу",
-    "онлайн",
-    "встречи",
-    "кино",
-    "взаимопомощь",
-    "литература", "стихи", "проза", "кино", "сказки", "православие", "акварель"
-]
 
 const filtersTags = [
     "кого ищу",
@@ -26,18 +14,18 @@ const filtersTags = [
 
 const MeetingsPage = () => {
 
-    const [currentUsers, setCurrentUsers] = useState([]);
-    const [pastUsers, setPastUsers] = useState([]);
+    const [currentMeetings, setCurrentMeetings] = useState([]);
+    const [pastMeetings, setPastMeetings] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/users')
+        fetch('http://localhost:3001/meetings')
           .then(response => response.json())
           .then(data => {
-            const current = data.filter(user => user.isCurrent);
-            const past = data.filter(user => !user.isCurrent);
+            const current = data.filter(meeting => meeting.isCurrent);
+            const past = data.filter(meeting => !meeting.isCurrent);
     
-            setCurrentUsers(current);
-            setPastUsers(past);
+            setCurrentMeetings(current);
+            setPastMeetings(past);
           })
           .catch(error => console.error('Error fetching data:', error));
       }, []);
@@ -50,19 +38,17 @@ const MeetingsPage = () => {
                 <div className={s.leftBlock}>
                     <h1 className={s.leftBlock__title}>Текущие</h1>
 
-                    {currentUsers.map((user) => {
-                    // const userImagePath = require(user.image).default;
-
-                    return <div key={user.id} className={s.card}>
-                        <img className={s.image} src={user.image} alt={user.id} />
+                    {currentMeetings.map((meeting) => {
+                    return <div key={meeting.id} className={s.card}>
+                        <img className={s.image} src={meeting.imageUrl} alt={meeting.id} />
                         <div className={s.card__info}>
-                            <h2 className={s.name}>{user.name}</h2>
+                            <h2 className={s.name}>{meeting.name}</h2>
                             <div className={s.tags}>
-                                {tags1.map((tag) => {
-                                    return <div className={s.tag} key={tag}>{tag}</div>
+                                {meeting.tags.map((tag) => {
+                                     return <div className={s.tag} key={tag}>{tag}</div>
                                 })}
                             </div>
-                            <p className={s.description}>{user.description}</p>
+                            <p className={s.description}>{meeting.description}</p>
                             <button className={s.contentLeft__button}>
                                 Завершить встречу
                             </button>
@@ -72,19 +58,19 @@ const MeetingsPage = () => {
 
                     <h1 className={s.leftBlock__title}>Прошедшие</h1>
 
-                    {pastUsers.map((user) => {
-                    return <div key={user.id} className={s.card}>
-                    <img className={s.image} src={user.image} alt={user.id} />
+                    {pastMeetings.map((meeting) => {
+                    return <div key={meeting.id} className={s.card}>
+                    <img className={s.image} src={meeting.imageUrl} alt={meeting.id} />
                         <div className={s.card__info}>
-                            <h2 className={s.name}>{user.name}</h2>
+                            <h2 className={s.name}>{meeting.name}</h2>
                             <div className={s.tags}>
-                                {tags1.map((tag) => {
-                                    return <div className={s.tag} key={tag}>{tag}</div>
+                                {meeting.tags.map((tag) => {
+                                     return <div className={s.tag} key={tag}>{tag}</div>
                                 })}
                             </div>
-                                <p className={s.description}>{user.description}</p>
+                                <p className={s.description}>{meeting.description}</p>
                             <button className={s.contentLeft__button + " " + s.disabled}>
-                                    Встреча прошла 12.10.23
+                                    Встреча прошла {meeting.date}
                             </button>
                         </div>
                     </div>
