@@ -1,0 +1,87 @@
+.container {
+    min-height: 100vh;
+    background: url("../../assets/welcomeBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContent{
+    padding-top: 150px;
+    width: 1152px;
+    display: flex;
+}
+
+.contentLeft__heading {
+    color: #DFE8F2;
+    font-family: Inter, sans-serif;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.contentLeft__text {
+    color: #DFE8F2;
+    font-family: Inter, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 128.736% */
+    margin-bottom: 50px;
+    margin-top: 15px;
+    width: 416px;
+}
+
+.slider {
+    position: relative;
+    width: 530px;
+    height: 340px;
+}
+
+
+.card {
+    position: absolute;
+    height: 150px;
+    border-radius: 8px;
+    background: #303840;
+    padding: 24px;
+    box-shadow: 0px 6px 24px 0px rgba(15, 20, 26, 0.30);
+    display: flex;
+    gap: 24px;
+}
+
+.card .name {
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 131.282% */
+    margin-bottom: 11px;
+}
+
+.card .description {
+    color: #BFCCD9;
+    font-family: Inter, sans-serif;
+    font-size: 14.625px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 136.752% */
+    margin-top: 30px;
+}
+
+.topCard {
+    top: 70px;
+    width: 530px;
+    z-index: 2;
+}
