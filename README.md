@@ -13,5 +13,5 @@
 #### Инструкция по запуску фронтенда
 1. `cd frontend`
 2. `npm install`
-3. `json-server --watch src/assets/db.json --port 3001`
+3. `json-server --watch ../db.json --port 3001`
 4. `npm start`
