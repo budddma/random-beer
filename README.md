@@ -16,9 +16,7 @@
 3. `json-server --watch ../db.json --port 3001`
 4. `npm start`
 
-#### Инструкция по запуску бэкенда
+#### Инструкция по запуску админки
 1. `cd backend`
-2. `python -m venv env`
-3. `source env/bin/activate`
-4. `pip install django`
-5. `./manage.py runserver`
+2. `source env/bin/activate`
+3. `./manage.py runserver`
