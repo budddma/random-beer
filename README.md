@@ -19,4 +19,5 @@
 #### Инструкция по запуску админки
 1. `cd backend`
 2. `source env/bin/activate`
-3. `./manage.py runserver`
+3. `pip install -r requirements.txt`
+4. `./manage.py runserver`

@@ -1,6 +1,6 @@
 .vscode
 
-#django
+# django
 env
 *.pyc
 *.log
@@ -10,14 +10,11 @@ __pycache__
 db.sqlite3
 media
 
-#react
+# react
 node_modules
-
 /.pnp
 .pnp.js
-
 /coverage
-
 /build
 
 .DS_Store
