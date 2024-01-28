@@ -4,6 +4,7 @@ import s from './MeetingsPage.module.css';
 import Footer from "../../components/Footer/Footer";
 import { useEffect, useState } from 'react';
 import Input from "../../components/Input/Input";
+import { ApiService } from '../../services/ApiService';
 
 
 const filtersTags = [
@@ -12,23 +13,37 @@ const filtersTags = [
     "увлечения"
 ]
 
+const INTEREST_MAP = {
+    '1': 'Литература',
+    '2': 'Рисование',
+    '3': 'C++',
+    '4': 'Православие',
+    '5': 'ML',
+    '6': 'Python'
+}
+
+
 const MeetingsPage = () => {
 
     const [currentMeetings, setCurrentMeetings] = useState([]);
     const [pastMeetings, setPastMeetings] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/meetings')
-          .then(response => response.json())
-          .then(data => {
-            const current = data.filter(meeting => meeting.isCurrent);
-            const past = data.filter(meeting => !meeting.isCurrent);
-    
-            setCurrentMeetings(current);
-            setPastMeetings(past);
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+        const fetchData = async () => {
+            try {
+                const data = await ApiService('meetings/');
+                const current = data.filter(meeting => meeting.is_current);
+                const past = data.filter(meeting => !meeting.is_current);
+
+                setCurrentMeetings(current);
+                setPastMeetings(past);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
         <div className={s.container}>
@@ -40,15 +55,15 @@ const MeetingsPage = () => {
 
                     {currentMeetings.map((meeting) => {
                     return <div key={meeting.id} className={s.card}>
-                        <img className={s.image} src={meeting.imageUrl} alt={meeting.id} />
+                        <img className={s.image} src={meeting.user.avatar} alt={meeting.id} />
                         <div className={s.card__info}>
-                            <h2 className={s.name}>{meeting.name}</h2>
+                            <h2 className={s.name}>{`${meeting.user.name}, ${meeting.user.age}`}</h2>
                             <div className={s.tags}>
-                                {meeting.tags.map((tag) => {
-                                     return <div className={s.tag} key={tag}>{tag}</div>
+                                {meeting.user.interests.map((tag) => {
+                                     return <div className={s.tag} key={tag}>{INTEREST_MAP[tag]}</div>
                                 })}
                             </div>
-                            <p className={s.description}>{meeting.description}</p>
+                            <p className={s.description}>{meeting.user.about_me}</p>
                             <button className={s.contentLeft__button}>
                                 Завершить встречу
                             </button>
@@ -60,15 +75,15 @@ const MeetingsPage = () => {
 
                     {pastMeetings.map((meeting) => {
                     return <div key={meeting.id} className={s.card}>
-                    <img className={s.image} src={meeting.imageUrl} alt={meeting.id} />
+                    <img className={s.image} src={meeting.user.avatar} alt={meeting.id} />
                         <div className={s.card__info}>
-                            <h2 className={s.name}>{meeting.name}</h2>
+                        <h2 className={s.name}>{`${meeting.user.name}, ${meeting.user.age}`}</h2>
                             <div className={s.tags}>
-                                {meeting.tags.map((tag) => {
-                                     return <div className={s.tag} key={tag}>{tag}</div>
+                                {meeting.user.interests.map((tag) => {
+                                     return <div className={s.tag} key={tag}>{INTEREST_MAP[tag]}</div>
                                 })}
                             </div>
-                                <p className={s.description}>{meeting.description}</p>
+                                <p className={s.description}>{meeting.user.about_me}</p>
                             <button className={s.contentLeft__button + " " + s.disabled}>
                                     Встреча прошла {meeting.date}
                             </button>
@@ -80,7 +95,6 @@ const MeetingsPage = () => {
                     <div className={s.filtersContainer}>
                         <h3 className={s.filtersHeading}>
                             Выбери интересы для поиска:
-
                         </h3>
                         <input className={s.filtersInput} placeholder={"Добавить интересы"} type="text"/>
                         <div className={s.filtersTags}>
