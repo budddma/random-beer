@@ -15,6 +15,7 @@
 
 #### Инструкция по запуску бэкенда
 1. `cd backend`
-2. `source env/bin/activate`
-3. `pip install -r requirements.txt`
-4. `./manage.py runserver`
+2. `virtualenv env`
+3. `source env/bin/activate`
+4. `pip install -r requirements.txt`
+5. `./manage.py runserver`

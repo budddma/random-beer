@@ -21,6 +21,11 @@ from meeting.views import MeetingViewSet
 from custom_user.views import CustomUserViewSet
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+# from user.views import UserViewSet, UserCurrent
 
 router = routers.DefaultRouter()
 router.register(r'meetings', MeetingViewSet)
@@ -28,5 +33,8 @@ router.register(r'users', CustomUserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/user/current', UserCurrent.as_view(), name="user_current"),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
 ] + static(settings.STATIC_URL) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

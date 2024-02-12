@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import s from './Input.module.css';
 import hide from '../../assets/hide.svg';
-const Input = ({label, required, placeholder = "", withHiddenToggler = false, type = "text", textarea = false}) => {
+const Input = ({label, required, placeholder = "", withHiddenToggler = false, type = "text", textarea = false, my_input = "", my_setInput = ""}) => {
     const id = Math.random().toString().slice(2,6);
-
-    const [input, setInput] = useState("");
+    let [input, setInput] = useState(my_input);
+    if (my_input) {
+        input = my_input;
+        setInput = my_setInput
+    }
+    
 
     return (
         <div className={s.container}>
